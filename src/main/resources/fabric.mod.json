@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "coffeecomputers",
+  "version": "${version}",
+  "name": "CoffeeComputers Mod",
+  "description": "Caffeinated Computers.",
+  "authors": [
+    "AdrianTodt"
+  ],
+  "contact": {
+    "sources": "https://github.com/CafeteriaGuild/AdventurerWeaponry"
+  },
+  "license": "Apache-2.0",
+  "icon": "assets/coffeecomputers/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      {
+        "adapter": "kotlin",
+        "value": "io.github.cafeteriaguild.coffeecomputers.CoffeeComputers"
+      }
+    ]
+  },
+  "mixins": [
+    "coffeecomputers.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.8.7",
+    "fabric": "*",
+    "fabric-language-kotlin": "*",
+    "minecraft": "1.16.x"
+  },
+  "suggests": {
+    "flamingo": "*"
+  }
+}
