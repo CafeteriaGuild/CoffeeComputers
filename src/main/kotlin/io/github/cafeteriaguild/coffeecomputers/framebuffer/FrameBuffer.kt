@@ -1,5 +1,6 @@
 package io.github.cafeteriaguild.coffeecomputers.framebuffer
 
+import io.github.cafeteriaguild.coffeecomputers.ScreenSizes
 import it.unimi.dsi.fastutil.ints.Int2ByteAVLTreeMap
 import it.unimi.dsi.fastutil.ints.Int2ByteMap
 import it.unimi.dsi.fastutil.ints.Int2ByteRBTreeMap
@@ -87,8 +88,8 @@ class FrameBuffer {
             return out.toByteArray()
         }
 
-        const val IMAGE_WIDTH = 310
-        const val IMAGE_HEIGHT = 175
+        const val IMAGE_WIDTH = ScreenSizes.computerWidth
+        const val IMAGE_HEIGHT = ScreenSizes.computerHeight
         const val IMAGE_SIZE = IMAGE_WIDTH * IMAGE_HEIGHT
         const val ARG_MAX = 16
 

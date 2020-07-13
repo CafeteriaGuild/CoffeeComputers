@@ -31,7 +31,7 @@ object FramebufferRenderer {
         0xFF111111u
     )
 
-    fun initialFrame(): NativeImage {
+    fun emptyFrame(): NativeImage {
         val image = NativeImage(IMAGE_WIDTH, IMAGE_HEIGHT, false)
         image.fillRect(0, 0, IMAGE_WIDTH, IMAGE_HEIGHT, colors[15].toInt())
         return image

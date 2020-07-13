@@ -19,6 +19,12 @@
         "adapter": "kotlin",
         "value": "io.github.cafeteriaguild.coffeecomputers.CoffeeComputers"
       }
+    ],
+    "client": [
+      {
+        "adapter": "kotlin",
+        "value": "io.github.cafeteriaguild.coffeecomputers.CoffeeComputersClient"
+      }
     ]
   },
   "mixins": [
