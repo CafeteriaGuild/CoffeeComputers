@@ -1,13 +1,14 @@
 package io.github.cafeteriaguild.coffeecomputers.block
 
+import io.github.cafeteriaguild.coffeecomputers.client.ComputerScreen
 import net.minecraft.block.Block
 import net.minecraft.block.BlockEntityProvider
 import net.minecraft.block.BlockState
 import net.minecraft.block.HorizontalFacingBlock
 import net.minecraft.block.entity.BlockEntity
+import net.minecraft.client.MinecraftClient
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.item.ItemPlacementContext
-import net.minecraft.screen.NamedScreenHandlerFactory
 import net.minecraft.state.StateManager
 import net.minecraft.state.property.EnumProperty
 import net.minecraft.state.property.Properties
@@ -36,12 +37,10 @@ class ComputerBlock(settings: Settings) : HorizontalFacingBlock(settings), Block
         state: BlockState, world: World, pos: BlockPos,
         player: PlayerEntity, hand: Hand, hit: BlockHitResult
     ): ActionResult? {
-        player.openHandledScreen(state.createScreenHandlerFactory(world, pos))
+        if(world.isClient) {
+            MinecraftClient.getInstance().openScreen(ComputerScreen())
+        }
         return ActionResult.SUCCESS
-    }
-
-    override fun createScreenHandlerFactory(state: BlockState, world: World, pos: BlockPos): NamedScreenHandlerFactory {
-        return world.getBlockEntity(pos) as ComputerBlockEntity
     }
 
     override fun appendProperties(stateManager: StateManager.Builder<Block?, BlockState?>) {

@@ -1,10 +1,8 @@
 package io.github.cafeteriaguild.coffeecomputers
 
 import io.github.cafeteriaguild.coffeecomputers.CoffeeComputersNetworking.framebuffer
-import io.github.cafeteriaguild.coffeecomputers.client.ComputerBlockScreen
 import io.github.cafeteriaguild.coffeecomputers.client.FramebufferRenderer
 import net.fabricmc.api.ClientModInitializer
-import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry
 import net.fabricmc.fabric.api.network.ClientSidePacketRegistry
 import net.fabricmc.fabric.api.network.PacketContext
 import net.minecraft.client.MinecraftClient
@@ -23,8 +21,6 @@ object CoffeeComputersClient : ClientModInitializer {
     }
 
     override fun onInitializeClient() {
-        ScreenRegistry.register(CoffeeComputers.computerScreenHandler, ::ComputerBlockScreen)
-
         ClientSidePacketRegistry.INSTANCE.register(framebuffer) { ctx: PacketContext, data: PacketByteBuf ->
             val size = data.readInt()
             val bytes = data.readByteArray(size)
